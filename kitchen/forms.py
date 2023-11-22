@@ -1,15 +1,15 @@
-from django.forms import forms, ModelForm
+from django.forms import ModelForm
 
 from kitchen.models import Dish, DishType
 
 
-class DishCreateForm(ModelForm):
+class DishForm(ModelForm):
     class Meta:
         model = Dish
         fields = "__all__"
 
 
-class DishTypeCreateForm(ModelForm):
+class DishTypeForm(ModelForm):
     class Meta:
         model = DishType
         fields = "__all__"
