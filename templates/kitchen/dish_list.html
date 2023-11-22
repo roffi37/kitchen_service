@@ -1,0 +1,9 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  {% for dish in dish_list %}
+    <ul>
+      <li>{{ dish }}</li>
+    </ul>
+  {% endfor %}
+{% endblock %}
