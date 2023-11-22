@@ -3,7 +3,7 @@
 {% block content %}
   {% for cook in cook_list %}
     <ul>
-      <li>{{ cook }}</li>
+      <a href="{% url "kitchen:cook-detail" pk=cook.id %}">{{ cook }}</a>
     </ul>
   {% endfor %}
 {% endblock %}

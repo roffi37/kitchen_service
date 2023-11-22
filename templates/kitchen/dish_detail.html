@@ -7,5 +7,6 @@
     <li>{{ dish.price }}</li>
     <li>{{ dish.dish_type }}</li>
     <li>{{ dish.cooks }}</li>
+    <a href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete {{ dish.name }}</a>
   </ul>
 {% endblock %}
