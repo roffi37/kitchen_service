@@ -4,14 +4,12 @@
   {% load static %}
   <link rel="stylesheet" href="{% static "css/settings.css" %}">
   <div class="element middle">
-      {% if dish_type_list %}
         <table class="table">
         <tr>
           <th>Dishes Types</th>
           {% if user.is_authenticated %}
             <th>Edit</th>
             <th>Create</th>
-          {% endif %}
         </tr>
       {% endif %}
       {% for dish_type in dish_type_list %}

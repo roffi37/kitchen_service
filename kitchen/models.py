@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField(null=True)
+    years_of_experience = models.IntegerField(null=False, blank=True)
 
     def __str__(self) -> str:
         return self.username
