@@ -32,6 +32,7 @@
         {% if user.is_authenticated %}
           <a class="btn btn-secondary my-2 my-sm-0" href="{% url "logout" %}">Logout</a>
         {% else %}
+          <a class="btn my-2 my-sm-0" href="{% url "kitchen:user-create" %}">Sign Up</a>
           <a class="btn btn-secondary my-2 my-sm-0" href="{% url "login" %}">Login</a>
         {% endif %}
       </form>
@@ -39,9 +40,8 @@
   </div>
 </nav>
 {% block content %}{% endblock %}
-{##}
-{#      {% block pagination %}#}
-{#        {% include "includes/pagination.html" %}#}
-{#      {% endblock %}#}
+      {% block pagination %}
+        {% include "includes/pagination.html" %}
+      {% endblock %}
 </body>
 </html>

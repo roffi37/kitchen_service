@@ -36,6 +36,7 @@ urlpatterns = [
     path("cooks/create/", CookCreateView.as_view(), name="cook-create"),
     path("cooks/<int:pk>/delete", CookDeleteView.as_view(), name="cook-delete"),
     path("cooks/<int:pk>/update", CookUpdateView.as_view(), name="cook-update"),
+    path("signup/", CookCreateView.as_view(), name="user-create")
 ]
 
 app_name = "kitchen"

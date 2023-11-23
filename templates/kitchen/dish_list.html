@@ -17,17 +17,17 @@
       </tr>
       {% for dish in dish_list %}
         <tr>
-        <td><a class="links" href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish }}</a></td>
-        <td>{{ dish.price }} {% if dish.price %} {% else %} - {% endif %}</td>
-        <td>{{ dish.description }}</td>
-        <td>{{ dish.type }}</td>
-        {% if user.is_staff %}
-          <td><a class="links" href="{% url "kitchen:dish-update" pk=dish.id %}">Update </a><a class="links"
-                                                                                               href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
-          </td>
-          <td><a class="links" href="{% url "kitchen:dish-create" %}">Create</a></td>
-        {% endif %}
-         </tr>
+          <td><a class="links" href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish }}</a></td>
+          <td>{{ dish.price }} {% if dish.price %} {% else %} - {% endif %}</td>
+          <td>{{ dish.description }}</td>
+          <td>{{ dish.type }}</td>
+          {% if user.is_staff %}
+            <td><a class="links" href="{% url "kitchen:dish-update" pk=dish.id %}">Update </a><a class="links"
+                                                                                                 href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
+            </td>
+            <td><a class="links" href="{% url "kitchen:dish-create" %}">Create</a></td>
+          {% endif %}
+        </tr>
       {% endfor %}
     </table>
   </div>

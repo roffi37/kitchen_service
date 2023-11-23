@@ -1,8 +1,9 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 from django import forms
 
-from kitchen.models import Dish, DishType
+from kitchen.models import Dish, DishType, Cook
 
 
 class DishForm(ModelForm):
@@ -27,4 +28,10 @@ class CookForm(ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = ("years_of_experience", "username", "first_name", "last_name")
+        fields = ("years_of_experience", "first_name", "last_name")
+
+
+class CookCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = Cook
+        fields = UserCreationForm.Meta.fields + ("years_of_experience", )
