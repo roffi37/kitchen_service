@@ -2,8 +2,8 @@
 
 {% block content %}
   <ul>
-    <li>{{ cook.first_name }}</li>
-    <li>{{ cook.last_name }}</li>
-    <li>{{ cook.years_of_experience }}</li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">{{ cook.first_name }}</li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">{{ cook.last_name }}</li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">{{ cook.years_of_experience }}</li>
   </ul>
 {% endblock %}

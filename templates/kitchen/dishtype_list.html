@@ -1,12 +1,30 @@
 {% extends "_base.html" %}
 
 {% block content %}
-   <h1>
-    <a href="{% url "kitchen:dish-type-create" %}">CREATE</a>
-  </h1>
-  {% for dish_type in dish_type_list %}
-    <ul>
-      <a href="{% url "kitchen:dish-type-detail" pk=dish_type.id %}">{{ dish_type }}</a>
-    </ul>
-  {% endfor %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/settings.css" %}">
+  <div class="element middle">
+      {% if dish_type_list %}
+        <table class="table">
+        <tr>
+          <th>Dishes Types</th>
+          {% if user.is_authenticated %}
+            <th>Edit</th>
+            <th>Create</th>
+          {% endif %}
+        </tr>
+      {% endif %}
+      {% for dish_type in dish_type_list %}
+        <tr>
+          <td><a class="links" href="{% url "kitchen:dish-type-detail" pk=dish_type.id %}">{{ dish_type }}</a></td>
+          {% if user.is_authenticated %}
+            <td><a class="links" href="{% url "kitchen:dish-type-update" pk=dish_type.id %}">Update </a><a class="links"
+                                                                                      href="{% url "kitchen:dish-type-delete" pk=dish_type.id %}">Delete</a>
+            </td>
+            <td><a class="links" href="{% url "kitchen:dish-type-create" %}">Create</a></td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+      </table>
+  </div>
 {% endblock %}
