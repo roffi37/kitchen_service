@@ -100,7 +100,7 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     form_class = CookForm
 
 
-class CookCreateView(LoginRequiredMixin, generic.CreateView):
+class CookCreateView(generic.CreateView):
     model = Cook
     success_url = reverse_lazy("kitchen:cook_list")
     context_object_name = "cook-create"
