@@ -8,9 +8,10 @@ Imagine you are the owner of restaurant, and you want to improve the communicati
 
 https://kitchen-service-9rkb.onrender.com/
 
-Credentials:
+
 Login: user.admin
-Password: <details>y390SBr7</details>
+
+Password: y390SBr7
 
 ## Functionality
 On this service, you can use the following functions: read dish types, read dishes, read cooks; register a user (cooks); create dish types, update, delete; create dishes, delete, update; Offcourse if you are a cook :)
