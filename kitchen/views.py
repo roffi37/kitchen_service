@@ -27,7 +27,7 @@ class DishListView(generic.ListView):
     context_object_name = "dish_list"
 
 
-class DishDetailView(generic.DetailView):
+class DishDetailView(LoginRequiredMixin, generic.DetailView):
     model = Dish
 
 
@@ -57,7 +57,7 @@ class DishTypeListView(generic.ListView):
     paginate_by = 5
 
 
-class DishTypeDetailView(generic.DetailView):
+class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     model = DishType
 
 
@@ -88,26 +88,26 @@ class CookListView(generic.ListView):
     paginate_by = 5
 
 
-class CookDetailView(generic.DetailView):
+class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
 
 
 class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Cook
-    success_url = reverse_lazy("kitchen:cook_list")
+    success_url = reverse_lazy("kitchen:cook-list")
     context_object_name = "cook-delete"
     form_class = CookForm
 
 
 class CookCreateView(generic.CreateView):
     model = Cook
-    success_url = reverse_lazy("kitchen:cook_list")
+    success_url = reverse_lazy("kitchen:cook-list")
     context_object_name = "cook-create"
     form_class = CookCreationForm
 
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
-    success_url = reverse_lazy("kitchen:cook_list")
+    success_url = reverse_lazy("kitchen:cook-list")
     form_class = CookForm
     context_object_name = "user-create"

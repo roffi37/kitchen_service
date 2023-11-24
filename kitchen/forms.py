@@ -33,5 +33,5 @@ class CookForm(ModelForm):
 
 class CookCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        model = Cook
+        model = get_user_model()
         fields = UserCreationForm.Meta.fields + ("years_of_experience", )
