@@ -1,0 +1,34 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/settings.css" %}">
+  <div class="element middle">
+    <table class="table">
+      <tr>
+        <th>Cook Name</th>
+        <th>Experience</th>
+        {% if user.is_staff %}
+          <th>Edit</th>
+          </tr>
+        {% endif %}
+      {% for cook in cook_list %}
+        <tr>
+          {% if user.is_staff %}
+            <td><a class="links" href="{% url "kitchen:cook-detail" pk=cook.id %}"> {% if cook.first_name %}
+              {{ cook.first_name }} {% else %} {{ cook }} {% endif %}</a></td>
+          {% else %}
+            <td>{% if cook.first_name %} {{ cook.first_name }} {% else %} {{ cook }} {% endif %}</td>
+          {% endif %}
+          <td>{% if cook.years_of_experience %} {{ cook.years_of_experience }} year{{ cook.years_of_experience|pluralize }}
+          {% else %} - {% endif %}</td>
+          {% if user.is_staff %}
+            <td><a class="links" href="{% url "kitchen:cook-update" pk=cook.id %}">Update </a><a class="links"
+                                                                                                 href="{% url "kitchen:cook-delete" pk=cook.id %}">Delete</a>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

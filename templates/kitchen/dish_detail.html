@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+
+
+{% block content %}
+  <ul>
+    <li>{{ dish.name }}</li>
+    <li>{{ dish.description }}</li>
+    <li>{{ dish.price }}</li>
+    <li>{{ dish.dish_type }}</li>
+    <li>{{ dish.cooks.name }}</li>
+    <li><a href="{% url "kitchen:dish-update" pk=dish.id %}">Update {{ dish.name }}</a></li>
+    <li><a href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete {{ dish.name }}</a></li>
+  </ul>
+{% endblock %}

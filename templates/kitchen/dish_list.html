@@ -1,0 +1,38 @@
+{% extends "_base.html" %}
+
+{% block content %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "css/settings.css" %}">
+  <div class="element middle">
+    <table class="table">
+      <tr>
+        <th>Dish</th>
+        <th>Dish Type</th>
+        <th>Price</th>
+        <th>Description</th>
+        {% if user.is_staff %}
+          <th>Edit</th>
+          <th>Create</th>
+        {% endif %}
+      </tr>
+      {% for dish in dish_list %}
+        <tr>
+          {% if user.is_staff %}
+            <td><a class="links" href="{% url "kitchen:dish-detail" pk=dish.id %}">{{ dish }}</a></td>
+          {% else %}
+            <td>{{ dish }}</td>
+          {% endif %}
+          <td>{{ dish.dish_type }}</td>
+          <td>{{ dish.price }} {% if dish.price %} {% else %} - {% endif %}</td>
+          <td>{{ dish.description }}</td>
+          {% if user.is_staff %}
+            <td><a class="links" href="{% url "kitchen:dish-update" pk=dish.id %}">Update </a><a class="links"
+                                                                                                 href="{% url "kitchen:dish-delete" pk=dish.id %}">Delete</a>
+            </td>
+            <td><a class="links" href="{% url "kitchen:dish-create" %}">Create</a></td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

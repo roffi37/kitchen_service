@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "css/settings.css" %}">
+    <div class="element middle index">
+      <h1 class="title">Kitchen service</h1>
+        <ul class="services-list">
+        <li class="service-item">We have: {{ num_cooks }} cooks</li>
+        <li class="service-item">More than {{ num_dish }} dishes</li>
+        <li class="service-item">And {{ num_dish_type }} dishes types</li>
+    </ul>
+    </div>
+
+{% endblock %}
