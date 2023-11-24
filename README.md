@@ -8,20 +8,32 @@ Imagine you are the owner of restaurant, and you want to improve the communicati
 
 https://kitchen-service-9rkb.onrender.com/
 
-# Functionality
+## Functionality
 On this service, you can use the following functions: read dish types, read dishes, read cooks; register a user (cooks); create dish types, update, delete; create dishes, delete, update; Offcourse if you are a cook :)
 
 
-## Environment Variables
+## Run Locally
 
 
-To deploy this project run
+Clone the project
 
 ```bash
   python -m venv venv
+```
+
+```bash
   source venv/scripts/activate
+```
+
+```bash
   python manage.py migrate
+
+```
+```bash
   python manage.py loaddata db.json
+```
+
+```bash
   python manage.py runserver
 ```
 
